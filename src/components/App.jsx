@@ -6,7 +6,7 @@ import {ContactList} from './ContactList/ContactList';
 import { Container, Title, SubTitle } from './App.styled';
 
 export const App = () => {
-  const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem('contacts')) || []);
+  const [contacts, setContacts] = useState(() => {return JSON.parse(localStorage.getItem('contacts')) || []});
   const [filter, setfilter] = useState('');
 
 useEffect(() => {
