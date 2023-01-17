@@ -6,13 +6,8 @@ import {ContactList} from './ContactList/ContactList';
 import { Container, Title, SubTitle } from './App.styled';
 
 export const App = () => {
-  const getLocalContact = () =>{
-    return JSON.parse(localStorage.getItem('contacts'));
-  }
-
-  const [contacts, setContacts] = useState(getLocalContact ?? []);
+  const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem('contacts')) || []);
   const [filter, setfilter] = useState('');
-
 
 useEffect(() => {
   localStorage.setItem('contacts', JSON.stringify(contacts));
